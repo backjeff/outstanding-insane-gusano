@@ -1,0 +1,10 @@
+steps:
+  - name: "gcr.io/cloud-builders/terraform"
+    args:
+      [
+        "init",
+        "-backend-config=infrastructure/config.tfvars",
+        "-terraform-dir=infrastructure/main/tf",
+      ]
+  - name: "gcr.io/cloud-builders/terraform"
+    args: ["apply", "-auto-approve", "-terraform-dir=infrastructure/main/tf"]
